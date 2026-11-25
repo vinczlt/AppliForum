@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0c0c0c;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        surface: "#0c0c0c",
+        background: "#0c0c0c",
+        secondary: "#a1a1aa",
+        "inverse-primary": "#27272a",
+        "inverse-on-surface": "#18181b",
+        primary: "#ffffff",
+        "outline-variant": "#27272a",
+        outline: "#3f3f46",
+        "surface-container-low": "#121214",
+        "surface-container-lowest": "#000000",
+        "surface-dim": "#0c0c0c",
+        "surface-container-highest": "#27272a",
+        "secondary-container": "#27272a",
+        "on-surface-variant": "#a1a1aa",
+        "primary-container": "#ffffff",
+        "surface-container-high": "#1f1f23",
+        "inverse-surface": "#ffffff",
+        "surface-container": "#18181b",
+        "on-background": "#ffffff",
+        "on-primary": "#0c0c0c",
+        "on-surface": "#ffffff",
+        "surface-bright": "#27272a"
+      },
+      fontFamily: {
+        sans: ["Geist", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"]
+      }
+    }
+  }
+}</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-white selection:text-black font-sans"><header class="fixed top-0 left-0 right-0 z-50 pt-safe bg-[#0c0c0c]/90 backdrop-blur-xl border-b border-[#27272a] shadow-[0_4px_20px_rgba(0,0,0,0.6)]"><div class="h-16 px-4 flex items-center justify-between gap-2"><div class="flex items-center gap-2.5 min-w-0"><img alt="Logo Nocturne Forum" class="h-8 w-auto object-contain shrink-0 invert brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeq3cKb1sfzYMbXunUzu96wbboBK0j2NiX1y_XWt8EapukqEOc1JhNYte3Ifn99QuccbVttEbZRKmDCdRIlhXJdgay7eJMXgD0z-SY-KUSYFybR0D4NRuuz5sS0qn2WQEh_mzOz4uKv1pfnujdCI-gmkopa0aPZk9PGC_bublRQOyMAKTM8YJrVdpm0Wgc4BJUojywvGO1Su_VA4857JPK6279VyPs4P2HOR20szc"/><div class="flex flex-col truncate"><span class="text-[17px] font-semibold text-white tracking-tight truncate leading-tight">Nocturne</span><span class="text-[11px] text-[#a1a1aa] tracking-wider uppercase font-mono font-medium">Accueil</span></div></div><div class="flex items-center gap-1 shrink-0"><button aria-label="Rechercher" class="w-10 h-10 rounded-full flex items-center justify-center text-[#a1a1aa] hover:text-white hover:bg-[#18181b] active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">search</span></button><button aria-label="Notifications" class="relative w-10 h-10 rounded-full flex items-center justify-center text-[#a1a1aa] hover:text-white hover:bg-[#18181b] active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-white ring-2 ring-[#0c0c0c]"></span></button><div class="pl-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-[#3f3f46] grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Lpu-BWeFuOu9joEinqwfHOBOSqnviEV7z98ECy13Sg0zBlRy9IVhRvwPyPdccvh9dE-qEyVOevrqpJ0RNL2M93ci8R2GuHyra9P6L86T0ZSlfE3me_R324NQWCp5TxWw9hcqnHCfN7JlA0Ge-YYSuNh6cbkF6ogo-3ZY1zrIot1Re2j72SLoZQ_xzZs0AIZPI3SWVtxrqH1U9nlCSpzvK12ZQHsnmWSIS0d14aI"/></div></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-[#0c0c0c]"><div class="flex flex-col w-full px-4 pb-12 gap-3.5">
+<!-- Micro-header Stats / Atmosphere Bar -->
+<div class="flex items-center justify-between py-1 text-[#71717a] font-mono text-[12px] tracking-wide border-b border-[#18181b] pb-2">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+<span class="text-[#e4e4e7] font-medium">1 428 noctambules en ligne</span>
+</div>
+<div class="flex items-center gap-1 text-[#71717a]">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Flux temps réel</span>
+</div>
+</div>
+<!-- Horizontal Scrollable Topic Filter Bar -->
+<div class="w-full -mx-4 px-4 overflow-x-auto no-scrollbar py-1">
+<div class="flex items-center gap-2 min-w-max" id="filter-bar" role="tablist">
+<!-- Active Pill (Solid white with dark text) -->
+<button aria-selected="true" class="filter-chip group flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white text-black font-medium text-[13px] shadow-sm active:scale-95 transition-all" role="tab" type="button">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span>Tendances</span>
+<span class="ml-1 px-1.5 py-0.5 rounded-full bg-[#18181b] text-white font-mono text-[11px]">48</span>
+</button>
+<!-- Inactive Pills -->
+<button aria-selected="false" class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#27272a] font-medium text-[13px] active:scale-95 transition-all" role="tab" type="button">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>Récents</span>
+</button>
+<button aria-selected="false" class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#27272a] font-medium text-[13px] active:scale-95 transition-all" role="tab" type="button">
+<span class="material-symbols-outlined text-[16px]">help_center</span>
+<span>Non résolus</span>
+<span class="ml-0.5 px-1.5 py-0.5 rounded-full bg-[#27272a] text-[#e4e4e7] font-mono text-[11px]">12</span>
+</button>
+<button aria-selected="false" class="filter-chip flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#18181b] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#27272a] font-medium text-[13px] active:scale-95 transition-all" role="tab" type="button">
+<span class="material-symbols-outlined text-[16px]">trending_up</span>
+<span>Populaires</span>
+</button>
+</div>
+</div>
+<!-- Pinned Community Announcement Card -->
+<aside class="relative overflow-hidden rounded-xl bg-[#121214] border border-[#27272a] p-4 shadow-lg">
+<div class="flex items-start gap-3">
+<div class="p-2 rounded-lg bg-[#18181b] border border-[#27272a] text-white shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[20px]">campaign</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#27272a] border border-[#3f3f46] text-white font-mono text-[11px] font-medium">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+            Épinglé
+          </span>
+<span class="text-[12px] text-[#71717a]">Mise à jour forum</span>
+</div>
+<h2 class="text-[16px] text-white font-semibold tracking-tight truncate">
+          Annonce de la communauté v2.4
+        </h2>
+<p class="mt-1 text-[13px] text-[#a1a1aa] line-clamp-2 leading-relaxed">
+          Découvrez les nouveaux canaux de débogage live, la synchronisation syntaxique GitHub et le mode basse latence pour les fils de discussion techniques.
+        </p>
+<div class="mt-3 flex items-center justify-between pt-1">
+<div class="flex items-center gap-2">
+<div class="flex -space-x-1.5 overflow-hidden">
+<img class="w-5 h-5 rounded-full object-cover grayscale ring-1 ring-[#27272a]" data-alt="Close up photographic avatar of lead software maintainer wearing black hoodie against ambient violet studio light, realistic portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb5uVC9KtcVmvuW0J6p-xZOn2yNvGG4tiTAlRObEEuB6HjnqCUviPm8B5S5P4R9JaMESLQLZchxoL-qfRi2LAsrmvLNqHSTrXT8BDf7FbxZBNsiuCyIQLrcyTKWHcaDUGV41rsIkidqzrDVmx-Q5suC3Hsj2YkBSEZR4lfo0Ez6SVNxzuSR1KayBQysWN3ueN84l_3SGGfz1SPM_cdh5GWGh_ZocnjnMxao_ZBoJs"/>
+<img class="w-5 h-5 rounded-full object-cover grayscale ring-1 ring-[#27272a]" data-alt="Avatar portrait of community moderator in glasses with cyan ambient backlight, hyper-focused tech atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASX3abMdth8hiyin8iQKxYuspA-SwX1uV-NIWtCmTQTyRM1e4pQ3WXz1pMUmq03h02EMk210lt3K1Ii9BI5sJqxFwTvcNXq_16Cb-KrPrpPLkuPTpfc0egm6LtUGDWCU5olQ1GuvdYB1VGjUNnOmjHuRLMmWH2ZFulb92XIZQvDEYeKjxQ7iJkAUNVaFgrVjNp5lgLrLtFVTCbuhaAh06inEkZUVS-PpVhgp4vyTA"/>
+</div>
+<span class="text-[12px] text-[#71717a] font-mono">+84 contributeurs</span>
+</div>
+<button class="inline-flex items-center gap-1 text-[13px] font-medium text-white hover:text-[#a1a1aa] active:scale-95 transition-all" type="button">
+<span>Lire les notes</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+<!-- Feed Thread List -->
+<div class="flex flex-col gap-3" id="feed-container">
+<!-- Thread Card 1 : React 19 (Resolved) -->
+<article class="thread-card flex flex-col p-4 rounded-xl bg-[#121214] border border-[#27272a] hover:border-[#3f3f46] hover:bg-[#18181b] transition-all shadow-sm gap-3">
+<!-- Top Meta -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 grayscale ring-1 ring-[#27272a]" data-alt="Headshot photo portrait of Alex, frontend engineer with dark hair, soft blue night desk lighting, natural modern programmer avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ps-TUO9rF9uAX9bAUWLSUzTiYCLA7eZtPy5R6mCNyEpSO7duJlNKsUnasgJmR02O0Diej35crdZY75VPTtxrVyptHCDAGdTUbU5sjjMLzron9xYlZvqrN9BnqoR3iiHmiTnNZlGk5SnUi0QDmuClTJninO6PYvGQspPKyqeADjWzbg-4mt27sfEdF8r8ZLkjnbrXDqXpXOi7XpyStUXvxRrW2cEZCLE8Bz482K8"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] text-white font-semibold truncate">@alex_dev</span>
+<span class="w-1 h-1 rounded-full bg-[#3f3f46]"></span>
+<span class="text-[12px] text-[#71717a]">il y a 2h</span>
+</div>
+<span class="text-[11px] text-[#a1a1aa] font-mono truncate">Senior Frontend Eng</span>
+</div>
+</div>
+<!-- Status Badge (Monochrome) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#1c1c1f] border border-[#27272a] text-[#e4e4e7] font-mono text-[11px] font-medium shrink-0">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+          Résolu
+        </span>
+</div>
+<!-- Title & Snippet -->
+<div class="flex flex-col gap-1.5">
+<h3 class="text-[16px] text-white font-semibold tracking-tight hover:text-[#d4d4d8] transition-colors cursor-pointer">
+          Comment optimiser les performances de rendu sur React 19 ?
+        </h3>
+<p class="text-[13px] text-[#a1a1aa] line-clamp-2 leading-relaxed">
+          Après avoir migré vers le nouveau compilateur, j'observe des ré-exécutions inattendues sur les listes virtualisées. Voici mes benchs et la solution trouvée avec le nouveau hook useActionState...
+        </p>
+</div>
+<!-- Tags Cluster (Monochrome) -->
+<div class="flex flex-wrap gap-1.5 items-center">
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#react</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#frontend</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-[#71717a] font-mono text-[11px]">v19-rc</span>
+</div>
+<!-- Micro Actions & Footer -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1a1a1e]">
+<!-- Voting Cluster -->
+<div class="flex items-center rounded-lg bg-[#000000] border border-[#27272a] p-0.5" data-vote-group="">
+<button aria-label="Upvote" class="vote-up flex items-center justify-center w-7 h-7 rounded text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+</button>
+<span class="vote-count px-2 font-mono text-[12px] text-white font-semibold">42</span>
+<button aria-label="Downvote" class="vote-down flex items-center justify-center w-7 h-7 rounded text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Interactions Right -->
+<div class="flex items-center gap-1.5">
+<!-- Comments Action -->
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#000000] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#18181b] active:scale-95 transition-all text-[12px] font-mono" type="button">
+<span class="material-symbols-outlined text-[16px]">chat_bubble_outline</span>
+<span>18</span>
+</button>
+<!-- Bookmark Action -->
+<button aria-label="Sauvegarder" class="bookmark-btn flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+<!-- Share Action -->
+<button aria-label="Partager" class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Thread Card 2 : Rust en Production -->
+<article class="thread-card flex flex-col p-4 rounded-xl bg-[#121214] border border-[#27272a] hover:border-[#3f3f46] hover:bg-[#18181b] transition-all shadow-sm gap-3">
+<!-- Top Meta -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 grayscale ring-1 ring-[#27272a]" data-alt="Portrait photograph of Sarah, backend systems architect with dark curly hair and thoughtful expression, warm minimal studio lamp, crisp tech community profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7PAiE89cpBWDmwDBmvD3nbWhZ2bhDaxqyqW3hgOjBZgrmSKcjriRfenBNTcciSJkVmfjwYytijHs7p776HwMi7HJ0yy3I0TXIO_7Bk14wRwGLKRhIozGmwuYWvXnWiW-wdt_MwCPNDJF_Pqawogo2xi-WdbKKVXK3miAfCUGdHbGcTt4IGB1WMAqYAPCGgS--yuo13QHCFDJNNJNSo71DOolhoxCZp3erRFpUfqk"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] text-white font-semibold truncate">@sarah_k</span>
+<span class="w-1 h-1 rounded-full bg-[#3f3f46]"></span>
+<span class="text-[12px] text-[#71717a]">il y a 5h</span>
+</div>
+<span class="text-[11px] text-[#a1a1aa] font-mono truncate">Rust Core Contributor</span>
+</div>
+</div>
+<!-- Reading Time Indicator -->
+<div class="flex items-center gap-1 text-[#71717a] font-mono text-[11px]">
+<span class="material-symbols-outlined text-[14px]">auto_stories</span>
+<span>6 min</span>
+</div>
+</div>
+<!-- Title & Preview Text -->
+<div class="flex flex-col gap-1.5">
+<h3 class="text-[16px] text-white font-semibold tracking-tight hover:text-[#d4d4d8] transition-colors cursor-pointer">
+          Retour d'expérience après 6 mois sur Rust en production
+        </h3>
+<p class="text-[13px] text-[#a1a1aa] line-clamp-2 leading-relaxed">
+          Nous avons réécrit notre pipeline d'ingestion de télémétrie initialement sous Go vers Actix-web et Tokio. Les latences p99 sont passées de 48ms à 2.1ms, mais le coût cognitif du borrow checker a ralenti l'onboarding de l'équipe durant les 6 premières semaines.
+        </p>
+</div>
+<!-- Tags Cluster -->
+<div class="flex flex-wrap gap-1.5 items-center">
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#rust</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#backend</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-[#71717a] font-mono text-[11px]">#performance</span>
+</div>
+<!-- Micro Actions & Footer -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1a1a1e]">
+<!-- Voting Cluster -->
+<div class="flex items-center rounded-lg bg-[#000000] border border-[#27272a] p-0.5" data-vote-group="">
+<button aria-label="Upvote" class="vote-up flex items-center justify-center w-7 h-7 rounded text-white bg-[#18181b] hover:bg-[#27272a] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+</button>
+<span class="vote-count px-2 font-mono text-[12px] text-white font-bold">128</span>
+<button aria-label="Downvote" class="vote-down flex items-center justify-center w-7 h-7 rounded text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Interactions Right -->
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#000000] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#18181b] active:scale-95 transition-all text-[12px] font-mono" type="button">
+<span class="material-symbols-outlined text-[16px]">chat_bubble_outline</span>
+<span>47</span>
+</button>
+<button aria-label="Sauvegarder" class="bookmark-btn flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+<button aria-label="Partager" class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Thread Card 3 : Dark Mode Design Tools -->
+<article class="thread-card flex flex-col p-4 rounded-xl bg-[#121214] border border-[#27272a] hover:border-[#3f3f46] hover:bg-[#18181b] transition-all shadow-sm gap-3">
+<!-- Top Meta -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5 min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 grayscale ring-1 ring-[#27272a]" data-alt="Portrait photography of Marc, UI designer with clean stylish aesthetic, soft neon purple glow rim lighting, professional digital creative avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqnz25mWUjDHURi_FSV7BcSA0vJk8I9gUiuRCdWW_-COjmuu541uzOdCLxF4bekzKTqAZx7wvYyuvxz1ipbdF75-fjIiRWyl8aPKR0Qsyv_Spb9sws5RRuNvinp7AJzL1Jul0J2JkDb_bBA0oT0Pdh2x7qi7Py0nuFO27OipA3w8x2O7Sy_jTs46TVutRp1Naurr6u1kkr85cT4TUbwXBRtdbg86kiK8Z0gpGQa8U"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] text-white font-semibold truncate">@marc_ui</span>
+<span class="w-1 h-1 rounded-full bg-[#3f3f46]"></span>
+<span class="text-[12px] text-[#71717a]">il y a 1j</span>
+</div>
+<span class="text-[11px] text-[#a1a1aa] font-mono truncate">Product Designer</span>
+</div>
+</div>
+<!-- Trend Badge (Monochrome) -->
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#1c1c1f] border border-[#27272a] text-[#e4e4e7] font-mono text-[11px] font-medium shrink-0">
+<span class="material-symbols-outlined text-[13px]">palette</span>
+          Design
+        </span>
+</div>
+<!-- Title & Preview Snippet -->
+<div class="flex flex-col gap-1.5">
+<h3 class="text-[16px] text-white font-semibold tracking-tight hover:text-[#d4d4d8] transition-colors cursor-pointer">
+          Les meilleurs outils pour designer en dark mode en 2025
+        </h3>
+<p class="text-[13px] text-[#a1a1aa] line-clamp-2 leading-relaxed">
+          Entre les contrastes APCA, les palettes Oklch et les plugins Figma d'éclairage ambiant, tour d'horizon des outils indispensables pour bâtir des interfaces sombres zéro fatigue oculaire.
+        </p>
+</div>
+<!-- Visual Attachment Mini Preview (Grayscale) -->
+<div class="w-full h-28 rounded-lg overflow-hidden relative border border-[#27272a] shadow-inner bg-black">
+<img class="w-full h-full object-cover grayscale contrast-125 brightness-90" data-alt="Cinematic macro view of a dark UI design system dashboard, neon indigo wireframes, layered frosted glass tokens and clean minimalist color scales, ultra high quality dark mode interface render" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBheodULjG3SBHX6ELk0qsnxAmwlpA18Y8H3SX5Q8EIgZSdP8sN4j9XN78_IPEBN2hU946ZpQ8shMtJKwG-I2yk9RsRb886TedicVRR5zxvonzr16LZdRdyVXMsUXmfbpQhQowG0qp1ovMWuGWxFvsA7r0tb2ekOsbfo2iUEUDbfKKtJKiZ94syScnFZbD6oiEIPvN4pcllhddywIPO5QmFsXtezLA2XSQkS7dD4TE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+<div class="absolute bottom-2 left-2 flex items-center gap-1.5 px-2 py-0.5 rounded bg-black/80 backdrop-blur-md border border-[#27272a] text-[#e4e4e7] font-mono text-[11px]">
+<span class="material-symbols-outlined text-[12px]">image</span>
+<span>Aperçu de la palette (4 visuels)</span>
+</div>
+</div>
+<!-- Tags Cluster -->
+<div class="flex flex-wrap gap-1.5 items-center">
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#design</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-white font-mono text-[11px]">#uiux</span>
+<span class="px-2.5 py-0.5 rounded-md bg-[#18181b] border border-[#27272a] text-[#71717a] font-mono text-[11px]">#darkmode</span>
+</div>
+<!-- Micro Actions & Footer -->
+<div class="flex items-center justify-between pt-2 border-t border-[#1a1a1e]">
+<!-- Voting Cluster -->
+<div class="flex items-center rounded-lg bg-[#000000] border border-[#27272a] p-0.5" data-vote-group="">
+<button aria-label="Upvote" class="vote-up flex items-center justify-center w-7 h-7 rounded text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+</button>
+<span class="vote-count px-2 font-mono text-[12px] text-white font-bold">85</span>
+<button aria-label="Downvote" class="vote-down flex items-center justify-center w-7 h-7 rounded text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+</button>
+</div>
+<!-- Interactions Right -->
+<div class="flex items-center gap-1.5">
+<button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-[#000000] border border-[#27272a] text-[#a1a1aa] hover:text-white hover:bg-[#18181b] active:scale-95 transition-all text-[12px] font-mono" type="button">
+<span class="material-symbols-outlined text-[16px]">chat_bubble_outline</span>
+<span>29</span>
+</button>
+<button aria-label="Sauvegarder" class="bookmark-btn flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">bookmark_border</span>
+</button>
+<button aria-label="Partager" class="flex items-center justify-center w-8 h-8 rounded-lg bg-[#000000] border border-[#27272a] text-[#71717a] hover:text-white hover:bg-[#18181b] active:scale-90 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">share</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<!-- End of Feed Subtle Indicator -->
+<div class="flex flex-col items-center justify-center py-6 gap-2 text-[#71717a]">
+<div class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></div>
+<span class="font-mono text-[11px] tracking-wider uppercase">Vous êtes à jour dans vos fils</span>
+</div>
+<!-- Quick Floating Action / Thumb Zone Shortcut (Crisp Solid White) -->
+<div class="fixed right-4 bottom-20 z-40">
+<button aria-label="Créer une discussion rapide" class="flex items-center gap-2 pl-3.5 pr-4 py-3 rounded-full bg-white text-black font-semibold text-[13px] shadow-[0_8px_24px_rgba(255,255,255,0.15)] active:scale-95 hover:bg-[#e4e4e7] transition-all" id="quick-create-btn" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_square</span>
+<span>Nouvelle discussion</span>
+</button>
+</div>
+</div>
+<script>
+  // Filter chips interaction
+  document.querySelectorAll('.filter-chip').forEach(button => {
+    button.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(btn => {
+        btn.classList.remove('bg-white', 'text-black');
+        btn.classList.add('bg-[#18181b]', 'text-[#a1a1aa]');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      button.classList.remove('bg-[#18181b]', 'text-[#a1a1aa]');
+      button.classList.add('bg-white', 'text-black');
+      button.setAttribute('aria-selected', 'true');
+    });
+  });
+
+  // Upvote / Downvote interactive micro-state
+  document.querySelectorAll('[data-vote-group]').forEach(group => {
+    const upBtn = group.querySelector('.vote-up');
+    const downBtn = group.querySelector('.vote-down');
+    const countEl = group.querySelector('.vote-count');
+    let count = parseInt(countEl.textContent, 10);
+    let state = 0; // -1: downvoted, 0: neutral, 1: upvoted
+
+    upBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (state === 1) {
+        state = 0;
+        count--;
+        upBtn.classList.remove('text-white', 'bg-[#18181b]');
+      } else {
+        if (state === -1) count++;
+        state = 1;
+        count++;
+        upBtn.classList.add('text-white', 'bg-[#18181b]');
+        downBtn.classList.remove('text-white', 'bg-[#18181b]');
+      }
+      countEl.textContent = count;
+    });
+
+    downBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (state === -1) {
+        state = 0;
+        count++;
+        downBtn.classList.remove('text-white', 'bg-[#18181b]');
+      } else {
+        if (state === 1) count--;
+        state = -1;
+        count--;
+        downBtn.classList.add('text-white', 'bg-[#18181b]');
+        upBtn.classList.remove('text-white', 'bg-[#18181b]');
+      }
+      countEl.textContent = count;
+    });
+  });
+
+  // Bookmark toggle
+  document.querySelectorAll('.bookmark-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const icon = btn.querySelector('.material-symbols-outlined');
+      const isBookmarked = icon.textContent === 'bookmark';
+      if (isBookmarked) {
+        icon.textContent = 'bookmark_border';
+        icon.style.fontVariationSettings = "'FILL' 0";
+        btn.classList.remove('text-white');
+        btn.classList.add('text-[#71717a]');
+      } else {
+        icon.textContent = 'bookmark';
+        icon.style.fontVariationSettings = "'FILL' 1";
+        btn.classList.add('text-white');
+        btn.classList.remove('text-[#71717a]');
+      }
+    });
+  });
+</script></main><nav class="fixed bottom-0 left-0 right-0 z-50 pb-safe bg-[#0c0c0c]/90 backdrop-blur-xl border-t border-[#27272a] shadow-[0_-4px_24px_rgba(0,0,0,0.6)]" data-active-classes="text-white font-semibold"><div class="h-16 px-2 flex items-center justify-around"><a aria-current="page" class="flex-1 flex flex-col items-center justify-center h-full gap-0.5 active:scale-95 transition-all text-white font-semibold" data-path="accueil" href="#"><span class="material-symbols-outlined text-[22px]">dynamic_feed</span><span class="font-mono text-[11px]">Accueil</span></a><a class="flex-1 flex flex-col items-center justify-center h-full gap-0.5 text-[#71717a] hover:text-white active:scale-95 transition-all" data-path="explorer" href="#"><span class="material-symbols-outlined text-[22px]">explore</span><span class="font-mono text-[11px]">Explorer</span></a><div class="flex-1 flex items-center justify-center"><a aria-label="Nouveau Post" class="w-10 h-10 rounded-full bg-white text-black shadow-md flex items-center justify-center active:scale-90 hover:bg-[#e4e4e7] transition-all" data-path="nouveau-post" href="#"><span class="material-symbols-outlined text-[22px] font-bold">add</span></a></div><a class="flex-1 flex flex-col items-center justify-center h-full gap-0.5 text-[#71717a] hover:text-white active:scale-95 transition-all" data-path="profil" href="#"><span class="material-symbols-outlined text-[22px]">person</span><span class="font-mono text-[11px]">Profil</span></a></div></nav></body></html>

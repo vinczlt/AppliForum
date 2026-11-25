@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0c0c0c;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;font-family:'Inter',sans-serif;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface": "#0c0c0c", "background": "#0c0c0c", "secondary": "#a1a1aa", "inverse-primary": "#71717a", "inverse-on-surface": "#18181b", "primary": "#ffffff", "on-primary": "#0c0c0c", "on-error": "#000000", "tertiary": "#e4e4e7", "error": "#ffffff", "outline-variant": "#27272a", "outline": "#71717a", "surface-container-low": "#121214", "surface-container-lowest": "#000000", "surface-dim": "#0c0c0c", "surface-container-highest": "#27272a", "primary-container": "#ffffff", "on-primary-container": "#000000", "surface-container-high": "#1f1f23", "inverse-surface": "#e4e4e7", "surface-container": "#18181b", "surface-variant": "#27272a", "on-surface-variant": "#a1a1aa", "on-background": "#f4f4f5", "on-surface": "#f4f4f5", "surface-bright": "#27272a" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-xl": "2rem", "gutter": "1rem", "space-sm": "0.5rem", "space-md": "1rem", "space-lg": "1.5rem", "space-xs": "0.25rem" }, fontFamily: { "label-lg": ["Inter"], "body-sm": ["Inter"], "display-lg-mobile": ["Inter"], "body-md": ["Inter"], "headline-lg": ["Inter"], "display-lg": ["Inter"], "label-md": ["JetBrains Mono"], "headline-sm": ["Inter"], "label-sm": ["JetBrains Mono"], "body-lg": ["Inter"], "headline-md": ["Inter"], "mono": ["JetBrains Mono"] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen selection:bg-white selection:text-black"><header class="fixed top-0 left-0 right-0 z-50 pt-safe bg-[#0c0c0c]/85 backdrop-blur-xl border-b border-[#27272a] shadow-[0_4px_20px_rgba(0,0,0,0.8)]"><div class="h-16 px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs min-w-0"><button aria-label="Retour" class="w-11 h-11 -ml-2 rounded-full flex items-center justify-center text-white hover:bg-surface-container active:scale-95 transition-all" onclick="history.back()" type="button"><span class="material-symbols-outlined text-[24px]">arrow_back</span></button><div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center border border-outline-variant shrink-0"><span class="material-symbols-outlined text-white text-[16px]">terminal</span></div><h1 class="font-semibold text-[17px] text-white tracking-tight truncate pl-1">Thread Detail</h1></div><div class="flex items-center gap-space-xs shrink-0"><button aria-label="Partager" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-white hover:bg-surface-container active:scale-95 transition-all" type="button"><span class="material-symbols-outlined text-[20px]">share</span></button><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6Lpu-BWeFuOu9joEinqwfHOBOSqnviEV7z98ECy13Sg0zBlRy9IVhRvwPyPdccvh9dE-qEyVOevrqpJ0RNL2M93ci8R2GuHyra9P6L86T0ZSlfE3me_R324NQWCp5TxWw9hcqnHCfN7JlA0Ge-YYSuNh6cbkF6ogo-3ZY1zrIot1Re2j72SLoZQ_xzZs0AIZPI3SWVtxrqH1U9nlCSpzvK12ZQHsnmWSIS0d14aI"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-24">
+<!-- Main Thread Card Area -->
+<article class="px-margin pt-space-md flex flex-col gap-space-md">
+<!-- Meta row: Author + Badges + Status -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="relative shrink-0">
+<img class="w-11 h-11 rounded-full object-cover grayscale contrast-125 ring-1 ring-outline-variant shadow-md" data-alt="Close up dark studio avatar of a modern software engineer wearing stylish glasses bathed in subtle moody purple and cyan ambient reflections on deep graphite background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8bdkQKWvAt2fAL1-5d0DDtb4p_JOQVrUhdOhsNrApT4_SmGFM3G7ofJ9rgQ517g2eA3P85nFf_l6LmCDAGJC-CylBgS2JuYAOkSjFKpe-RNr6BUoY4K7M96iCiYLEa4fVZrVWiRAWUDAgDNaFSnFWEOiB4D7oR8Fkr8G9-Ts-vwo70TAbwMuAJ7qmhckJktInIoxMlGKfVyuyFOwlYVcgxOuN5I1gR5FUe8hQ1M"/>
+<span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-white text-black rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-semibold text-[15px] text-white truncate">Alex Rivera</span>
+<span class="text-xs text-on-surface-variant font-mono">@alex_dev</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container border border-outline-variant text-white text-[11px] font-medium">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              Top Contributeur
+            </span>
+<span class="text-xs text-outline">•</span>
+<span class="text-xs text-outline">Il y a 2h</span>
+</div>
+</div>
+</div>
+<!-- Resolved Status Badge -->
+<div class="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white text-black font-medium text-xs shadow-sm">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Résolu</span>
+</div>
+</div>
+<!-- Tags Row -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high border border-outline-variant text-white font-mono text-xs">#react</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high border border-outline-variant text-white font-mono text-xs">#frontend</span>
+<span class="px-2.5 py-1 rounded-lg bg-surface-container-high border border-outline-variant text-secondary font-mono text-xs">#performance</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container border border-outline-variant text-secondary text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">visibility</span>
+        1.4k vues
+      </span>
+</div>
+<!-- Thread H1 Title -->
+<h2 class="text-[22px] leading-[28px] font-bold text-white tracking-tight">
+      Comment optimiser les performances de rendu sur React 19 ?
+    </h2>
+<!-- Rich Thread Body Content -->
+<div class="flex flex-col gap-space-md text-on-surface-variant text-[15px] leading-relaxed">
+<p class="text-[#e4e4e7]">
+        Depuis la migration de notre application d'analyse temps réel vers <strong class="text-white font-semibold">React 19 RC</strong>, nous constatons des saccades lors de filtrages intensifs sur des listes de plus de 10 000 éléments avec graphiques SVG synchronisés.
+      </p>
+<p class="text-sm">
+        J'ai expérimenté une séparation entre le thread principal et les mises à jour non bloquantes. Voici le scénario comparatif entre <code class="px-1.5 py-0.5 rounded bg-surface-container-highest border border-outline-variant text-white text-xs font-mono">useTransition</code> et <code class="px-1.5 py-0.5 rounded bg-surface-container-highest border border-outline-variant text-white text-xs font-mono">useDeferredValue</code> :
+      </p>
+<!-- Stylized Monochrome Dark Code Block -->
+<div class="rounded-xl bg-[#000000] border border-outline-variant p-space-md shadow-md flex flex-col gap-space-xs">
+<div class="flex items-center justify-between pb-space-xs border-b border-[#27272a]">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-[#71717a]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#3f3f46]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#27272a]"></span>
+<span class="ml-2 text-xs text-outline font-mono">DataTableFilter.tsx</span>
+</div>
+<button class="flex items-center gap-1 px-2 py-1 rounded bg-[#18181b] border border-outline-variant text-on-surface-variant hover:text-white text-xs font-mono transition-all active:scale-95" onclick="navigator.clipboard.writeText('// Copied code');" type="button">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span>Copier</span>
+</button>
+</div>
+<pre class="font-mono text-xs overflow-x-auto text-[#f4f4f5] leading-relaxed py-1.5"><code><span class="text-[#71717a]">const</span> [isPending, startTransition] = <span class="text-white font-medium">useTransition</span>();
+<span class="text-[#71717a]">const</span> deferredQuery = <span class="text-white font-medium">useDeferredValue</span>(searchQuery);
+
+<span class="text-[#71717a]">// Déclenchement non bloquant de la refactorisation</span>
+<span class="text-[#71717a]">function</span> <span class="text-[#a1a1aa]">handleQueryChange</span>(e: ChangeEvent) {
+  <span class="text-white">startTransition</span>(<span class="text-[#71717a]">async</span> () =&gt; {
+    <span class="text-[#71717a]">await</span> <span class="text-[#a1a1aa]">syncMetricsTelemetry</span>();
+    <span class="text-white">setFilterState</span>(e.target.value);
+  });
+}</code></pre>
+</div>
+<!-- Test Summary / Metrics Card -->
+<div class="rounded-xl bg-surface-container border border-outline-variant p-space-md flex flex-col gap-space-xs shadow-sm">
+<div class="flex items-center gap-2 text-white font-semibold text-base">
+<span class="material-symbols-outlined text-[18px]">speed</span>
+<span>Bilan de nos benchmarks internes</span>
+</div>
+<div class="grid grid-cols-2 gap-space-xs mt-1">
+<div class="rounded-lg bg-[#121214] border border-[#27272a] p-space-sm flex flex-col">
+<span class="text-xs text-outline font-mono">Temps de blocage (TBT)</span>
+<span class="text-lg text-white font-bold mt-0.5 font-mono">340ms <span class="text-secondary text-xs font-normal">→ 42ms</span></span>
+</div>
+<div class="rounded-lg bg-[#121214] border border-[#27272a] p-space-sm flex flex-col">
+<span class="text-xs text-outline font-mono">Stabilité Frame rate</span>
+<span class="text-lg text-white font-bold mt-0.5 font-mono">58.4 FPS <span class="text-secondary text-xs font-normal">(99th %)</span></span>
+</div>
+</div>
+<p class="text-xs text-outline mt-1">
+          Est-ce que le compilateur React 19 rend l'usage systématique de memoization obsolète dans ce cas précis ?
+        </p>
+</div>
+</div>
+<!-- Interaction Bar (Active Upvote, Count, Actions) -->
+<div class="flex items-center justify-between py-space-xs">
+<!-- Upvote Cluster -->
+<div class="inline-flex items-center rounded-xl bg-surface-container border border-outline-variant p-1 gap-1 shadow-sm">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white text-black font-semibold text-xs transition-all active:scale-95 shadow-sm" id="main-upvote-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span id="main-upvote-count">42</span>
+</button>
+<button class="w-8 h-8 rounded-lg flex items-center justify-center text-on-surface-variant hover:text-white transition-all active:scale-95" id="main-downvote-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">thumb_down</span>
+</button>
+</div>
+<!-- Quick Action Pill Group -->
+<div class="flex items-center gap-space-xs">
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container border border-outline-variant text-white hover:bg-surface-container-high font-medium text-xs transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">chat_bubble</span>
+<span>18</span>
+</button>
+<button aria-label="Marque-page" class="w-9 h-9 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-white transition-all active:scale-95" id="bookmark-btn" type="button">
+<span class="material-symbols-outlined text-[18px]" id="bookmark-icon">bookmark</span>
+</button>
+<button aria-label="Partager" class="w-9 h-9 rounded-xl bg-surface-container border border-outline-variant flex items-center justify-center text-on-surface-variant hover:text-white transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Section Separator & Filter Header -->
+<div class="px-margin mt-space-lg mb-space-sm flex items-center justify-between gap-space-sm">
+<div class="flex items-center gap-2">
+<h3 class="text-base font-bold text-white">Réponses</h3>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high border border-outline-variant text-secondary text-xs font-mono">18</span>
+</div>
+<!-- Filter Toggle Pills -->
+<div class="flex items-center p-1 rounded-xl bg-surface-container border border-outline-variant">
+<button class="px-3 py-1 rounded-lg bg-white text-black font-semibold text-xs shadow-sm transition-all" type="button">
+        Plus utiles
+      </button>
+<button class="px-3 py-1 rounded-lg text-outline font-medium text-xs hover:text-white transition-all" type="button">
+        Plus récentes
+      </button>
+</div>
+</div>
+<!-- Responses Feed -->
+<div class="flex flex-col gap-space-md px-margin">
+<!-- Response 1: Pinned / Accepted Solution -->
+<div class="rounded-xl bg-surface-container border border-outline-variant p-space-md shadow-md flex flex-col gap-space-sm relative overflow-hidden">
+<!-- Monochrome Glow Top Highlight for Solution -->
+<div class="absolute top-0 left-0 right-0 h-0.5 bg-white"></div>
+<!-- Solution Badge & Author Row -->
+<div class="flex items-start justify-between gap-space-xs pt-0.5">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 grayscale contrast-125 ring-1 ring-outline-variant" data-alt="Intense portrait of a senior tech architect woman with neon violet backlighting and soft focus studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBScbXJyw4VhAmI--rAUHTKO90oIdk-A67pwB__jvYNtKdFsIiF98PY2UXxE1-dpj52IED9g_yODQzX0z9ACBk1y6wT4yYNKUV1ehJoQ-gKQRi6g8HU4Xb0u5di5U0DRBxABLJAA8wf9sL9yhiS4y-eQdbYXBiaPUcfmYjBeAy8iHXt28ugZkiORoHdpbBGsfG8OtnADiBCYKJ4ygdCftGXfMyhTv8X9WJHXKy-O6Q"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-sm font-semibold text-white truncate">Elena Rostova</span>
+<span class="text-xs text-on-surface-variant font-mono">@elena_code</span>
+</div>
+<div class="flex items-center gap-1 text-xs text-outline">
+<span class="text-white font-medium">Tech Lead</span>
+<span>•</span>
+<span>Il y a 1h</span>
+</div>
+</div>
+</div>
+<div class="shrink-0 flex items-center gap-1 px-2 py-0.5 rounded-full bg-white text-black font-semibold text-xs shadow-sm">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span>Solution acceptée</span>
+</div>
+</div>
+<!-- Response Content -->
+<div class="flex flex-col gap-space-xs text-on-surface-variant text-sm leading-relaxed mt-1">
+<p class="text-[#e4e4e7]">
+          Oui, avec le <strong class="text-white font-semibold">React Compiler</strong> (Forget), tu n'as plus besoin d'enrober manuellement avec <code class="px-1 py-0.2 rounded bg-surface-container-highest border border-outline-variant text-white font-mono text-xs">useMemo</code> ou <code class="px-1 py-0.2 rounded bg-surface-container-highest border border-outline-variant text-white font-mono text-xs">useCallback</code>. Le compilateur génère automatiquement un mémoïsation granulaire au niveau AST.
+        </p>
+<p>
+          Pour ton cas, privilégie résolument <strong class="text-white">useDeferredValue</strong> couplé à la prop <code class="px-1 py-0.2 rounded bg-surface-container-highest border border-outline-variant text-white font-mono text-xs">initialValue</code> :
+        </p>
+<!-- Inline code helper -->
+<div class="rounded-lg bg-[#000000] border border-[#27272a] p-space-sm font-mono text-xs text-[#f4f4f5] overflow-x-auto shadow-inner">
+<code><span class="text-[#71717a]">const</span> deferredList = <span class="text-white font-medium">useDeferredValue</span>(data, []);<br/><span class="text-[#71717a]">// Rendu immédiat du fallback sans gel UI</span></code>
+</div>
+</div>
+<!-- Elena Footer Action Row -->
+<div class="flex items-center justify-between pt-space-xs mt-1">
+<div class="flex items-center gap-1 rounded-lg bg-[#121214] border border-[#27272a] p-0.5 shadow-sm">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-md bg-white text-black font-semibold text-xs active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">thumb_up</span>
+<span>24</span>
+</button>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-white active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px]">thumb_down</span>
+</button>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-white text-xs font-medium hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">reply</span>
+<span>Répondre</span>
+</button>
+</div>
+</div>
+<!-- Response 2: Follow-up question -->
+<div class="rounded-xl bg-surface-container border border-outline-variant p-space-md shadow-md flex flex-col gap-space-sm">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-9 h-9 rounded-full object-cover shrink-0 grayscale contrast-125 ring-1 ring-outline-variant" data-alt="Portrait of a young creative digital nomad developer drinking coffee in night mode aesthetic workspace with cyan glow." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOW5icVhMDadjU7EN2gMgebzb3NkzcJetQmi02I0rI69qPGJRqg_gwgR9sHOX_KGNKBZQEjX-JBl5Vhhzgg1WxYrqAf0wUh7FS9YMEy_3cHYs2pFyfXkoZHA8SvQ2pdSZbJuoSD9wa11gaVY-jrIXSZ67xAtraxN-loymqrHRyo_jMgkazOJtdTYKNhlFawLgDJ-w-JD7wC2-QMJZW7EW43D46moU26J7jfbhDF5A"/>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-sm font-semibold text-white truncate">Julien Tournier</span>
+<span class="text-xs text-on-surface-variant font-mono">@julien_t</span>
+</div>
+<div class="text-xs text-outline font-mono">
+              Il y a 45 min
+            </div>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant text-sm leading-relaxed mt-0.5">
+<p class="text-[#e4e4e7]">
+          Merci pour la précision @elena_code ! Est-ce que cela fonctionne aussi sans heurts quand on a des composants tiers comme <em>TanStack Table</em> ou des virtualiseurs de listes lourdes ?
+        </p>
+</div>
+<!-- Julien Footer Action Row -->
+<div class="flex items-center justify-between pt-space-xs mt-1">
+<div class="flex items-center gap-1 rounded-lg bg-[#121214] border border-[#27272a] p-0.5 shadow-sm">
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-md text-on-surface-variant font-medium text-xs hover:text-white active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px]">thumb_up</span>
+<span>5</span>
+</button>
+<button class="w-6 h-6 flex items-center justify-center text-outline hover:text-white active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[15px]">thumb_down</span>
+</button>
+</div>
+<button class="flex items-center gap-1 px-2.5 py-1 rounded-lg text-white text-xs font-medium hover:bg-surface-container-high transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]">reply</span>
+<span>Répondre</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Reply Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-[#0c0c0c]/95 backdrop-blur-xl border-t border-[#27272a] px-margin py-3 shadow-[0_-8px_30px_rgba(0,0,0,0.8)] flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<!-- Input Container with Attachment buttons -->
+<div class="flex-1 flex items-center bg-[#000000] border border-outline-variant rounded-xl px-3 py-1.5 shadow-inner">
+<input class="flex-1 bg-transparent text-white placeholder:text-outline text-sm font-normal focus:outline-none min-w-0 py-1" id="reply-input" placeholder="Écrire une réponse..." type="text"/>
+<!-- Formatting / Attachment action shortcuts -->
+<div class="flex items-center gap-0.5 shrink-0 ml-1 text-on-surface-variant">
+<button aria-label="Insérer du code" class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-white hover:bg-surface-container transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">code</span>
+</button>
+<button aria-label="Ajouter une image" class="w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-white hover:bg-surface-container transition-all active:scale-95" type="button">
+<span class="material-symbols-outlined text-[18px]">image</span>
+</button>
+</div>
+</div>
+<!-- Crisp White Send Action Button -->
+<button aria-label="Envoyer" class="w-11 h-11 shrink-0 rounded-xl bg-white text-black flex items-center justify-center shadow-md active:scale-95 transition-all hover:bg-[#e4e4e7]" id="send-reply-btn" type="button">
+<span class="material-symbols-outlined text-[20px] -rotate-12 translate-x-0.5">send</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  // Micro-interactions updated for monochrome styling
+  const upvoteBtn = document.getElementById('main-upvote-btn');
+  const upvoteCount = document.getElementById('main-upvote-count');
+  let isUpvoted = true;
+
+  if (upvoteBtn && upvoteCount) {
+    upvoteBtn.addEventListener('click', () => {
+      let current = parseInt(upvoteCount.innerText, 10);
+      if (isUpvoted) {
+        upvoteCount.innerText = current - 1;
+        upvoteBtn.classList.remove('bg-white', 'text-black');
+        upvoteBtn.classList.add('text-on-surface-variant');
+        isUpvoted = false;
+      } else {
+        upvoteCount.innerText = current + 1;
+        upvoteBtn.classList.add('bg-white', 'text-black');
+        upvoteBtn.classList.remove('text-on-surface-variant');
+        isUpvoted = true;
+      }
+    });
+  }
+
+  const bookmarkBtn = document.getElementById('bookmark-btn');
+  const bookmarkIcon = document.getElementById('bookmark-icon');
+  let isBookmarked = false;
+
+  if (bookmarkBtn && bookmarkIcon) {
+    bookmarkBtn.addEventListener('click', () => {
+      isBookmarked = !isBookmarked;
+      if (isBookmarked) {
+        bookmarkIcon.style.fontVariationSettings = "'FILL' 1";
+        bookmarkBtn.classList.add('text-white');
+        bookmarkBtn.classList.remove('text-on-surface-variant');
+      } else {
+        bookmarkIcon.style.fontVariationSettings = "'FILL' 0";
+        bookmarkBtn.classList.remove('text-white');
+        bookmarkBtn.classList.add('text-on-surface-variant');
+      }
+    });
+  }
+
+  const replyInput = document.getElementById('reply-input');
+  const sendReplyBtn = document.getElementById('send-reply-btn');
+
+  if (sendReplyBtn && replyInput) {
+    sendReplyBtn.addEventListener('click', () => {
+      if (replyInput.value.trim() !== '') {
+        replyInput.value = '';
+        replyInput.placeholder = 'Réponse envoyée !';
+        setTimeout(() => {
+          replyInput.placeholder = 'Écrire une réponse...';
+        }, 2000);
+      }
+    });
+  }
+</script></main></body></html>
