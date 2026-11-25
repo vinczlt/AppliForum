@@ -27,7 +27,56 @@ Dans `src/Entity/User.php` sur le serveur, le champ `email` a été ajouté au g
 
 Vérifications sur le serveur : le schéma expose désormais `email` à l’inscription ; une inscription vide et une adresse mal formée renvoient HTTP 422 avec les erreurs de champs. La date d’inscription est initialisée par le constructeur et le mot de passe est haché par `UserStateProcessor`. Le formulaire Flutter exige maintenant les mêmes 12 caractères minimum, majuscule, minuscule, chiffre et caractère spécial que l’API.
 
-La réussite complète inscription puis connexion reste à vérifier avec le compte de l’utilisateur. Aucun compte fictif n’a été créé pour les tests. Les tests automatiques utilisent un client HTTP simulé, distinct du service réel.
+L’utilisateur a confirmé que le parcours fonctionne après la correction. Aucun compte fictif n’a été créé pour les tests. Les tests automatiques utilisent un client HTTP simulé, distinct du service réel.
+
+## Installer le projet sur une autre machine
+
+### 1. Préparer le PC
+
+Installer Git, Flutter et Android Studio avec le SDK Android et un émulateur (ou utiliser un téléphone Android en débogage USB). Ajouter le dossier `bin` de Flutter au PATH.
+
+Le projet demande Dart `>=3.13.7 <4.0.0` via Flutter (voir `pubspec.yaml`). Vérifier la version fournie par l’installation avec `flutter --version`.
+
+Choisir de préférence un dossier local non synchronisé, par exemple `C:\dev`, pour éviter les problèmes de fichiers de compilation en lecture seule rencontrés dans OneDrive.
+
+### 2. Récupérer les sources
+
+Remplacer `URL_DU_DEPOT` par l’adresse du dépôt GitHub créé pour ce projet :
+
+```sh
+git clone URL_DU_DEPOT nocturne
+cd nocturne
+flutter pub get
+flutter doctor
+flutter doctor --android-licenses
+```
+
+Lire les licences proposées et accepter celles nécessaires au développement Android. Corriger les éventuels problèmes de la rubrique Android de `flutter doctor`.
+
+Ne pas copier `android/local.properties` depuis l’ancien PC : Flutter le régénère avec les chemins du SDK de la nouvelle machine. Ne pas copier non plus `build` ou `.dart_tool`. Conserver `pubspec.lock` dans Git pour retrouver les versions des dépendances.
+
+### 3. Démarrer l’application
+
+Ouvrir le dossier cloné dans VS Code. Démarrer un appareil dans le Device Manager d’Android Studio, puis :
+
+```sh
+flutter devices
+flutter run -d ID_ANDROID
+```
+
+Remplacer `ID_ANDROID` par l’identifiant Android affiché, par exemple `emulator-5554`. Dans VS Code, sélectionner ce même appareil avant d’utiliser F5. La cible Windows exige d’autres outils et n’est pas nécessaire pour lancer Android.
+
+Au premier lancement, Gradle peut télécharger des composants Android. Si un composant manque, installer la version indiquée par l’erreur dans Android Studio, SDK Manager (Show Package Details pour le NDK).
+
+### 4. Comprendre ce qui est partagé
+
+- Le dépôt contient le code Flutter, les tests, les projets de plateforme, les maquettes de référence et les PDF pédagogiques.
+- Le code Symfony et la base de données restent sur le serveur : ils ne font pas partie de ce dépôt Flutter.
+- L’application utilise la même API distante depuis les deux machines. Les comptes et messages restent donc les mêmes ; une connexion Internet est nécessaire.
+- Le jeton de connexion n’est pas partagé par Git : se reconnecter dans l’application sur la nouvelle machine.
+- Les fichiers temporaires de génération des PDF dans `tmp/` sont exclus du suivi.
+
+Pour récupérer les prochaines modifications : enregistrer ou committer d’abord son travail local, puis lancer `git pull` et `flutter pub get`.
 
 ## Lancer et vérifier
 

@@ -46,3 +46,12 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Temporary document generation files (keep the final PDFs in output/pdf).
+/tmp/
+
+# Local credentials and environment overrides.
+.env
+.env.*
+!.env.example
+!.env.sample
