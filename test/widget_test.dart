@@ -1,10 +1,11 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/testing.dart';
-import 'package:flutter_application_1/main.dart';
+import 'package:flutter_application_1/app.dart';
+import 'package:flutter_application_1/screens/auth_page.dart';
 import 'package:flutter_application_1/forum_api.dart';
 
 final message = {

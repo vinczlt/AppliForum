@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
+// Erreur compréhensible par les écrans : message à afficher et code HTTP éventuel.
 class ApiException implements Exception {
   const ApiException(this.message, {this.status});
   final String message;
@@ -11,6 +12,7 @@ class ApiException implements Exception {
   String toString() => message;
 }
 
+// Représente les données d’un message. Ce n’est pas un widget : aucun affichage ici.
 class ForumMessage {
   const ForumMessage({
     required this.id,
@@ -24,6 +26,7 @@ class ForumMessage {
   final String title, content, author;
   final DateTime? date;
   final int? parentId;
+  // Transforme les données JSON du serveur en objet Dart utilisable par les écrans.
   factory ForumMessage.fromJson(Map<String, dynamic> json) {
     final user = json['user'];
     final name = user is Map
@@ -47,6 +50,7 @@ class ForumMessage {
   }
 }
 
+// Une page de résultats : messages, total disponible et lien vers la page suivante.
 class MessagePage {
   const MessagePage(this.messages, this.total, this.next);
   final List<ForumMessage> messages;
@@ -54,16 +58,19 @@ class MessagePage {
   final String? next;
 }
 
+// Service partagé par les écrans : toutes les communications réseau passent ici.
 class ForumApi {
   ForumApi({http.Client? client}) : _client = client ?? http.Client();
   static final base = Uri.parse(
     'https://4743.s3.nuage-peda.fr/ApiPlatform/api/',
   );
   final http.Client _client;
+  // Preuve de connexion conservée en mémoire uniquement ; elle disparaît à la fermeture.
   String? _token;
   String? email;
   bool get isLoggedIn => _token != null;
 
+  // Déconnecte localement en oubliant le token et l’adresse e-mail.
   void logout() {
     _token = null;
     email = null;
@@ -73,13 +80,15 @@ class ForumApi {
 
   Uri _uri(String path) {
     final uri = base.resolve(path);
-    // Pagination must never send a session token to another server.
+    // Refuse un lien de pagination externe pour ne pas y envoyer le token.
     if (uri.origin != base.origin || !uri.path.startsWith(base.path)) {
       throw const ApiException('Le serveur a renvoyé un lien invalide.');
     }
     return uri;
   }
 
+  // Fonction commune aux appels API : prépare la requête et vérifie la réponse.
+  // Sans body : GET pour lire. Avec body : POST pour envoyer des données.
   Future<Map<String, dynamic>> _request(
     String path, {
     Map<String, dynamic>? body,
@@ -98,6 +107,7 @@ class ForumApi {
                   ? _client.get(uri, headers: headers)
                   : _client.post(uri, headers: headers, body: jsonEncode(body)))
               .timeout(const Duration(seconds: 20));
+      // Le JSON est un format de transport ; on le décode en dictionnaire Dart.
       Map<String, dynamic> data = {};
       try {
         final decoded = jsonDecode(utf8.decode(response.bodyBytes));
@@ -178,6 +188,7 @@ class ForumApi {
     }
   }
 
+  // Envoie les identifiants ; le token renvoyé prouve que le serveur les a acceptés.
   Future<void> login(String email, String password) async {
     final data = await _request(
       'authentication_token',
@@ -194,6 +205,7 @@ class ForumApi {
     this.email = email.trim();
   }
 
+  // Demande la création du compte. Le serveur valide et enregistre les informations.
   Future<void> register({
     required String email,
     required String password,
@@ -212,6 +224,7 @@ class ForumApi {
     );
   }
 
+  // Charge une liste de messages, ou la page suivante si next est fourni.
   Future<MessagePage> messages({String? next}) async {
     final data = await _request(next ?? 'messages?order%5Bid%5D=desc');
     final members = data['member'] ?? data['hydra:member'];
@@ -237,6 +250,7 @@ class ForumApi {
     }
   }
 
+  // Charge un seul message à partir de son identifiant.
   Future<ForumMessage> message(int id) async {
     final data = await _request('messages/$id');
     try {
